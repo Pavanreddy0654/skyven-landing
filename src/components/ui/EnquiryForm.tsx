@@ -1,8 +1,9 @@
 "use client";
 
 import clsx from "clsx";
+import { useRouter } from "next/navigation";
 import { useId, useState, type FormEvent } from "react";
-import { enquiry } from "@/data/content";
+import { enquiry, thankYou } from "@/data/content";
 import { validateEnquiry, type EnquiryErrors, type EnquiryFields } from "@/lib/enquiry";
 import { Button } from "./Button";
 import { ChevronDown } from "./icons";
@@ -35,6 +36,7 @@ export function EnquiryForm({
   className,
 }: EnquiryFormProps) {
   const id = useId();
+  const router = useRouter();
   const [values, setValues] = useState<EnquiryFields>(empty);
   const [errors, setErrors] = useState<EnquiryErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -74,6 +76,8 @@ export function EnquiryForm({
       setStatus("success");
       // Analytics (§11.7): picked up by GTM / GA4 when the client adds their tags
       (window as Window & { dataLayer?: object[] }).dataLayer?.push({ event: "generate_lead", source });
+      // Send the visitor to the thank-you page (the inline message below shows while it loads)
+      router.push(thankYou.path);
     } catch {
       setStatus("error");
     }

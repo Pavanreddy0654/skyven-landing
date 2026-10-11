@@ -381,3 +381,85 @@ export const footer = {
   copyright: "Copyright © 2026. Skyven by E-Infra & PVR Pingle | Designed by 8Views",
   rera: "RERA No: P02400009501",
 };
+
+export const thankYou = {
+  path: "/thank-you",
+  metaTitle: "Thank You | Skyven Residences Kokapet",
+  eyebrow: "ENQUIRY RECEIVED",
+  title: "THANK YOU",
+  message: "Thank you. Our team will contact you shortly.",
+  contactLead: "Prefer to talk now? Reach us directly:",
+  cta: { label: "BACK TO SKYVEN", href: "/" },
+};
+
+// Draft written from what this site actually collects and where it is sent.
+// Needs review by the client's legal team before launch (Q28).
+export const privacyPolicy = {
+  path: "/privacy-policy",
+  metaTitle: "Privacy Policy | Skyven Residences Kokapet",
+  metaDescription: "How Skyven Residences collects, uses and protects the details you share through this website.",
+  title: "PRIVACY POLICY",
+  lastUpdated: "Last updated: 11 October 2026",
+  intro:
+    "This policy explains how Skyven Residences, a project by E-Infra & PVR Pingle (\"we\", \"us\"), collects and uses the personal information you share through this website, and the choices you have.",
+  sections: [
+    {
+      heading: "INFORMATION WE COLLECT",
+      paragraphs: ["When you submit an enquiry or book a site visit, we collect:"],
+      list: [
+        "Your full name, email address and phone number",
+        "The budget range you select",
+        "Your consent to be contacted",
+        "Which form you used, the page address, and campaign details in the link you followed (such as UTM source, medium and campaign)",
+        "The date and time of your enquiry",
+      ],
+    },
+    {
+      heading: "HOW WE USE YOUR INFORMATION",
+      paragraphs: ["We use these details only to:"],
+      list: [
+        "Respond to your enquiry and arrange site visits",
+        "Share information, updates and offers about Skyven Residences by call, SMS, email or WhatsApp, as you consented to on the form",
+        "Understand which campaigns bring enquiries, so we can improve how we reach interested buyers",
+      ],
+    },
+    {
+      heading: "CONSENT AND DND",
+      paragraphs: [
+        "By ticking the consent box on our forms, you authorise Skyven and its representatives to contact you by call, SMS, email or WhatsApp about its updates and notifications. This consent overrides any registration for DND / NDNC as per TRAI regulations. You can withdraw your consent at any time by contacting us using the details below.",
+      ],
+    },
+    {
+      heading: "WHERE YOUR INFORMATION IS STORED AND SHARED",
+      paragraphs: [
+        "Your enquiry is stored in our lead management tools: a secure spreadsheet, our customer relationship management (CRM) system and our sales team's email. Access is limited to people who handle sales and customer service for Skyven Residences.",
+        "We do not sell your personal information. We may share it with service providers who help us run these tools, only for the purposes above, or where required by law.",
+      ],
+    },
+    {
+      heading: "THIRD-PARTY CONTENT",
+      paragraphs: [
+        "Videos on this website are hosted on YouTube and shown using YouTube's privacy-enhanced mode, and the location map is provided by Google Maps. When you play a video or view the map, those services may collect information under their own privacy policies.",
+      ],
+    },
+    {
+      heading: "HOW LONG WE KEEP YOUR INFORMATION",
+      paragraphs: [
+        "We keep your details for as long as needed to respond to your enquiry and stay in touch about the project, or for longer where the law requires it. When they are no longer needed, we delete them.",
+      ],
+    },
+    {
+      heading: "YOUR RIGHTS",
+      paragraphs: [
+        "You can ask us to access, correct or delete the personal information we hold about you, or to stop contacting you. To make a request, contact us using the details below.",
+      ],
+    },
+    {
+      heading: "CHANGES TO THIS POLICY",
+      paragraphs: ["We may update this policy from time to time. The date at the top of this page shows when it was last changed."],
+    },
+  ],
+  contactHeading: "CONTACT US",
+  contactIntro: "For any questions about this policy or your information:",
+  cta: { label: "BACK TO SKYVEN", href: "/" },
+};
