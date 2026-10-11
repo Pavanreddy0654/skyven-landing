@@ -16,6 +16,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | A6 | Construction Update video poster: none supplied. Note the YouTube thumbnail of the August video reads "JULY 2026". | YouTube thumbnail | §6.8 |
 | A7 | Mobile hero: no mobile exports of the elevation/cloud images. | Mobile elevation is a crop of the desktop image centred on the tower, matched to the 375 screenshot | §6.2 |
 | A8 | `og-image.jpg` (1200×630) not supplied. | Cropped from the hero elevation | §7.3 |
+| A9 | `clubhouse-456-bg.jpg` was exported with a fade over its lower half, so the ground floor and cars seen in the design are darkened. An export without the baked-in fade would match the design. | Current file | §6.9 |
 
 ## Hero scroll section
 

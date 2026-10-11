@@ -183,7 +183,7 @@ export const construction = {
 };
 
 export const clubhouse = {
-  title: "THE CLUBHOUSE FLOORS 4, 5 & 6",
+  title: ["THE CLUBHOUSE", "FLOORS 4, 5 & 6"],
   subtitle: "LIVE. WORK. PLAY. CONNECT.",
   background: {
     src: "/assets/clubhouse-456-bg.jpg",

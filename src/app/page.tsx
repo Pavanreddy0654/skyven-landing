@@ -1,9 +1,11 @@
 import { CloserLook } from "@/components/sections/CloserLook";
+import { Clubhouse456 } from "@/components/sections/Clubhouse456";
 import { Comparison } from "@/components/sections/Comparison";
 import { ConstructionUpdate } from "@/components/sections/ConstructionUpdate";
 import { EnquireBar } from "@/components/sections/EnquireBar";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
+import { Location } from "@/components/sections/Location";
 import { RooftopClubhouse } from "@/components/sections/RooftopClubhouse";
 import { Usps } from "@/components/sections/Usps";
 
@@ -19,6 +21,8 @@ export default function Home() {
         <Usps />
         <RooftopClubhouse />
         <ConstructionUpdate />
+        <Clubhouse456 />
+        <Location />
       </main>
     </>
   );

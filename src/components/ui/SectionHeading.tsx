@@ -9,8 +9,12 @@ type SectionHeadingProps = {
   align?: "center" | "left";
   /** Visual style of the subtitle: normal body copy or small uppercase tagline */
   subtitleStyle?: "body" | "tagline";
+  /** Where title lines break: on md+ only (default), on mobile only, or always */
+  lineBreaks?: "desktop" | "mobile" | "always";
   className?: string;
 };
+
+const breakClass = { desktop: "md:block", mobile: "block md:inline", always: "block" };
 
 const tones = {
   dark: { eyebrow: "text-gold", title: "text-ivory", subtitle: "text-ivory-muted" },
@@ -25,6 +29,7 @@ export function SectionHeading({
   tone = "dark",
   align = "center",
   subtitleStyle = "body",
+  lineBreaks = "desktop",
   className,
 }: SectionHeadingProps) {
   const lines = typeof title === "string" ? [title] : title;
@@ -35,7 +40,7 @@ export function SectionHeading({
       {eyebrow && <p className={clsx("mb-3 font-display text-eyebrow", t.eyebrow)}>{eyebrow}</p>}
       <h2 id={id} className={clsx("font-display text-h2", t.title)}>
         {lines.map((line, i) => (
-          <span key={line} className="md:block">
+          <span key={line} className={breakClass[lineBreaks]}>
             {line}
             {i < lines.length - 1 && " "}
           </span>
