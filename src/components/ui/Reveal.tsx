@@ -15,19 +15,22 @@ type RevealProps = {
   brightness?: number;
   delay?: number;
   id?: string;
+  /** Element to render; "tr" lets a single table row reveal on its own */
+  as?: "div" | "tr";
 };
 
 /**
  * Fade-up on enter (§9): opacity 0 → 1, y 24 → 0, 700ms ease-out, once. Content is always in
  * the server HTML; with reduced motion it is shown straight away with no movement.
  */
-export function Reveal({ children, className, y = 24, scale = 1, brightness, delay = 0, id }: RevealProps) {
+export function Reveal({ children, className, y = 24, scale = 1, brightness, delay = 0, id, as = "div" }: RevealProps) {
   const still = usePrefersReducedMotion();
+  const Element = as === "tr" ? m.tr : m.div;
   const hidden = { opacity: 0, y, scale, ...(brightness !== undefined && { filter: `brightness(${brightness})` }) };
   const shown = { opacity: 1, y: 0, scale: 1, ...(brightness !== undefined && { filter: "brightness(1)" }) };
 
   return (
-    <m.div
+    <Element
       id={id}
       className={className}
       initial={hidden}
@@ -40,6 +43,6 @@ export function Reveal({ children, className, y = 24, scale = 1, brightness, del
           })}
     >
       {children}
-    </m.div>
+    </Element>
   );
 }
