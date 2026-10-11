@@ -40,7 +40,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q8 | Healthcare and Lifestyle location entries. | Category headings shown with no entries | §6.10, §13.12 |
 | Q9 | Sticky header? Floating WhatsApp/call button on mobile? | Header is fixed: transparent at the top of the page, navy/blur after 80px of scroll; no floating button | §6.1, §6.16, §13.13 |
 | Q10 | Large gaps after the closer-look video and before the footer text: animation space or spacing? | Normal section padding after the video; footer gap kept | §6.5, §9, §13.14 |
-| Q11 | Where form submissions go (CRM, email, Google Sheet). | `/api/enquiry` validates and logs; `TODO` for the integration | §10, §13.15 |
+| Q11 | Where form submissions go: Google Sheets, CRM and email (confirmed). Which CRM, so its field names can be matched? | Built: Sheets (Apps Script web app), CRM (generic JSON webhook), email (SMTP); each switches on with its env variables | §10, §13.15 |
 | Q12 | Google Maps embed URL / exact pin. | Embed pins Google's "Skyven" place (sy no:153, Gandipet Main Rd, Kokapet); confirm it is the right listing | §6.15, §13.16 |
 | Q13 | Corner radius: all sharp? | 0 everywhere | §3.4, §13.17 |
 | Q14 | "EXPLORE SKYVEN" hero button target. | Scrolls to `#usps` | §6.2 |

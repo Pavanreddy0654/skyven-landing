@@ -19,6 +19,16 @@ npm run build && npm start
 | `NEXT_PUBLIC_SITE_URL` | `https://www.your-domain.com` | Canonical URL, sitemap, Open Graph image URLs. Defaults to `http://localhost:3000`. |
 | `NEXT_PUBLIC_SITE_ENV` | `production` | Only `production` makes the site indexable. Any other value (or none) gives `noindex` and a `robots.txt` that blocks crawling, for staging and preview builds. |
 
+## Form leads (Google Sheets, CRM, email)
+
+Every enquiry is sent from `/api/enquiry` to each destination that is configured, all at once. A destination with no settings is skipped; if one fails the others still receive the lead and the failure is logged. The visitor only sees an error if every configured destination fails. All variable names are listed in `.env.example`. Requires Node hosting (Vercel, a VPS, etc.), not static-only hosting.
+
+| Destination | Settings | Notes |
+|---|---|---|
+| Google Sheets | `GOOGLE_SHEETS_WEBHOOK_URL`, `GOOGLE_SHEETS_WEBHOOK_SECRET` | Paste `docs/google-sheets-apps-script.gs` into the sheet's Apps Script and deploy it as a web app (steps at the top of that file). Adds one row per lead. |
+| CRM | `CRM_WEBHOOK_URL`, `CRM_AUTH_HEADER`, `CRM_AUTH_TOKEN` | Posts JSON: name, email, phone, budget, consent, project, source, UTM fields, page, submitted_at. Field names can be matched to a specific CRM in `src/lib/leads.ts`. |
+| Email | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `LEAD_EMAIL_FROM`, `LEAD_EMAIL_TO` | Notification to the sales team (reply goes to the lead). Gmail/Workspace needs an App Password. |
+
 ## Where things live
 
 | What | Where |
@@ -28,7 +38,7 @@ npm run build && npm start
 | Sections | `src/components/sections/` |
 | Shared UI (Button, Accordion, Carousel, forms, video) | `src/components/ui/` |
 | Form validation (client and server) | `src/lib/enquiry.ts` |
-| Form endpoint | `src/app/api/enquiry/route.ts` (CRM/email hand-off still a `TODO`, see Q11) |
+| Form endpoint | `src/app/api/enquiry/route.ts` → `src/lib/leads.ts` (Sheets, CRM, email) |
 | Images | `public/assets/` (originals in `design-source/originals/`) |
 
 ## Scripts
