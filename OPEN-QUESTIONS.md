@@ -13,7 +13,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | A3 | Logo: both PNGs read "SKYVEN" only, without the "RESIDENCES" line seen in the design. SVG logo to follow. | `logo-header.png` / `logo-footer.png` via one `Logo` component | §6.1, §6.16, §7.3 |
 | A4 | Favicon: no emblem-only file. | Bird cropped from `logo-footer.png` | §7.3 |
 | A5 | Carousel, engineering and gallery photos are 1x exports (e.g. 808×456, mobile gallery 336×200); soft on retina screens. | Current files; 2x replacements with the same names drop straight in | §7.1 |
-| A6 | Construction Update video poster: none supplied. | YouTube thumbnail | §6.8 |
+| A6 | Construction Update video poster: none supplied. Note the YouTube thumbnail of the August video reads "JULY 2026". | YouTube thumbnail | §6.8 |
 | A7 | Mobile hero: no mobile exports of the elevation/cloud images. | Mobile elevation is a crop of the desktop image centred on the tower, matched to the 375 screenshot | §6.2 |
 | A8 | `og-image.jpg` (1200×630) not supplied. | Cropped from the hero elevation | §7.3 |
 

@@ -12,7 +12,7 @@ type CarouselProps = {
   /** Accessible name for the carousel region */
   label: string;
   tone?: "dark" | "light";
-  /** Width of each slide, e.g. "basis-[88%] md:basis-[76.5%]" (percent of the content container) */
+  /** Width of each slide, e.g. "basis-[88%] md:basis-[min(808px,80%)]" */
   slideClassName?: string;
   /** Aspect ratio of the image box, e.g. "aspect-[808/456]" */
   imageClassName?: string;
@@ -32,7 +32,7 @@ export function Carousel({
   slides,
   label,
   tone = "dark",
-  slideClassName = "basis-[88%] md:basis-[76.5%]",
+  slideClassName = "basis-[88%] md:basis-[min(808px,80%)]",
   imageClassName = "aspect-[808/456]",
   sizes,
   bleed = true,
@@ -69,7 +69,7 @@ export function Carousel({
     >
       <div
         ref={viewportRef}
-        className={clsx("cursor-grab overflow-hidden active:cursor-grabbing", bleed ? "px-container" : "")}
+        className={clsx("cursor-grab overflow-hidden active:cursor-grabbing", bleed ? "px-carousel" : "")}
       >
         <ul className="flex touch-pan-y gap-3 md:gap-4 lg:gap-6">
           {slides.map((slide, i) => (

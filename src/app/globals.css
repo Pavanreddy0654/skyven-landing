@@ -52,8 +52,6 @@
   /* Button height: 44 (mobile) / 40 (1440) / 46 (1920), measured from the exports */
   --spacing-btn: clamp(40px, calc(22px + 1.25vw), 46px);
   --spacing-section: clamp(64px, calc(60px + 4.1667vw), 140px);
-  /* Inset for wide rows (carousels, closer-look video) */
-  --spacing-wide: 4.2vw;
 
   --shadow-glow: 0 0 18px rgb(255 236 190 / 0.45);
   --shadow-glow-strong: 0 0 28px rgb(255 236 190 / 0.7);
@@ -89,9 +87,20 @@
   margin-inline: auto;
 }
 
-/* Inline padding that lines content up with the container edges while letting it bleed (carousels) */
-@utility px-container {
-  padding-inline: calc((100% - min(1224px, calc(35vw + 552px), calc(100% - 2 * var(--gutter)))) / 2);
+/*
+ * Carousel inset: on the container edge at 1440 (192px) and 4.2vw (80px) at 1920, as in the two
+ * frames; never closer to the edge than the gutter on smaller screens.
+ */
+@utility px-carousel {
+  padding-inline: max(
+    4.2vw,
+    min(calc((100% - min(1224px, calc(35vw + 552px), calc(100% - 2 * var(--gutter)))) / 2), calc(528px - 23.33vw))
+  );
+}
+
+/* Wide media (closer-look video): 1174px at 1440 and 1760px (4.2vw inset) at 1920, never narrower than the container */
+@utility w-wide {
+  width: max(min(1224px, calc(35vw + 552px), calc(100% - 2 * var(--gutter))), min(calc(122.08vw - 584px), 91.6vw));
 }
 
 @layer base {
