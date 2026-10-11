@@ -5,13 +5,13 @@ import { enquiry } from "@/data/content";
 /**
  * Enquire card in the dark area under the hero (§6.3). In every frame the card's top sits at
  * y ≈ 1940 and the next section's eyebrow at y ≈ 3111, so the top gap is derived from the hero
- * height and the large space below is kept (H3).
+ * height. No extra space below the card: the next section's own padding sets the gap (H3).
  */
 export function EnquireBar() {
   return (
     <section
       aria-labelledby="enquire-title"
-      className="bg-navy-900 pt-[calc(181*var(--m))] pb-[600px] md:pt-[clamp(48px,calc(1940px-var(--t)-1856*var(--u)),260px)] md:pb-[770px]"
+      className="bg-navy-900 pt-[calc(181*var(--m))] md:pt-[clamp(48px,calc(1940px-var(--t)-1856*var(--u)),260px)]"
     >
       <div
         id="enquire"

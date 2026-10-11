@@ -24,7 +24,7 @@ Running list of everything still to confirm with the designer or client. Each it
 |---|---|---|---|
 | H1 | Exact X/Y of each cloud and label layer (1920, 1440, 375 frames). | Positions measured from the screenshots / spec table | §6.2, §13.1 |
 | H2 | Plain parallax or a pinned/sticky reveal? | Plain parallax (no scroll hijacking) | §6.2, §13.3 |
-| H3 | Is the ~830px dark space under the Enquire card intentional? | Kept, as in the design | §6.3, §13.4 |
+| H3 | Is the ~830px dark space under the Enquire card intentional? | Removed at the client's request; the gap is now the normal section padding | §6.3, §13.4 |
 
 ## Rest of the page
 
