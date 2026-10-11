@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Aboreto, Karla } from "next/font/google";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 import "./globals.css";
 
 const aboreto = Aboreto({
@@ -26,7 +27,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${aboreto.variable} ${karla.variable}`}>
-      <body>{children}</body>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

@@ -1,4 +1,13 @@
 import type { Metadata } from "next";
+import { Accordion } from "@/components/ui/Accordion";
+import { Button } from "@/components/ui/Button";
+import { Carousel } from "@/components/ui/Carousel";
+import { EnquiryForm } from "@/components/ui/EnquiryForm";
+import { GlowDivider } from "@/components/ui/GlowDivider";
+import { Logo } from "@/components/ui/Logo";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { VideoCard } from "@/components/ui/VideoCard";
+import { comparison, faq, gallery, rooftop, videos } from "@/data/content";
 
 // Step 1 test page: colours and type scale. Removed before launch (Step 10).
 export const metadata: Metadata = {
@@ -64,6 +73,38 @@ export default function StyleguidePage() {
           <p className="mt-3 font-display text-h2 text-gold-deep">ONE FLOOR CLOSER TO THE SKY</p>
           <p className="mt-4 text-body text-ink/70">Gold-deep on cream (see §3.1 note).</p>
         </section>
+        <section className="space-y-10">
+          <h2 className="font-display text-h2">Components</h2>
+          <div className="flex flex-wrap items-center gap-6">
+            <Logo />
+            <Logo variant="footer" className="h-16" />
+            <Button>EXPLORE SKYVEN</Button>
+            <Button variant="outline" href="#enquire">ENQUIRE NOW</Button>
+          </div>
+          <GlowDivider className="mx-auto" />
+          <SectionHeading eyebrow={comparison.eyebrow} title={comparison.title} subtitle={comparison.subtitle} />
+          <Accordion
+            items={faq.items.map((item, i) => ({
+              id: String(i),
+              title: <span className="text-body font-medium">{item.question}</span>,
+              content: <p className="pb-5 text-small text-ivory/75">{item.answer}</p>,
+            }))}
+            defaultOpen={[0]}
+            triggerClassName="py-5"
+          />
+          <VideoCard videoId={videos.usps.id} title={videos.usps.title} poster={videos.usps.poster} />
+          <VideoCard videoId={videos.construction.id} title={videos.construction.title} />
+          <div className="border border-ivory/60 p-5 md:p-6" id="enquire">
+            <EnquiryForm layout="inline" source="styleguide-inline" />
+          </div>
+          <EnquiryForm layout="grid" source="styleguide-grid" className="mx-auto max-w-[600px]" />
+        </section>
+      </div>
+      <div className="mt-16 bg-cream py-section">
+        <Carousel label="Rooftop clubhouse" slides={rooftop.slides} tone="light" sizes="(min-width: 768px) 56vw, 88vw" />
+      </div>
+      <div className="py-section md:hidden">
+        <Carousel label="Gallery" slides={gallery.mobile} slideClassName="basis-full" imageClassName="aspect-[336/200]" sizes="100vw" dots />
       </div>
     </main>
   );

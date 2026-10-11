@@ -82,6 +82,11 @@
   margin-inline: auto;
 }
 
+/* Inline padding that lines content up with the container edges while letting it bleed (carousels) */
+@utility px-container {
+  padding-inline: calc((100% - min(1224px, calc(35vw + 552px), calc(100% - 2 * var(--gutter)))) / 2);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

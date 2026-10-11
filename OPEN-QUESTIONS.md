@@ -49,3 +49,4 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q18 | FAQ default state: all open (as drawn) or first only? | First open | §6.13 |
 | Q19 | VideoObject `uploadDate` for each YouTube video. | Taken from the public YouTube page if available; otherwise left out until confirmed | §5.7 |
 | Q20 | Section vertical padding and the ~4.2vw carousel inset. | Spec values (140 / 120 / 64px, 4.2vw) | §3.4 |
+| Q21 | Target of the other "EXPLORE SKYVEN" buttons (USP's, rooftop, construction, clubhouse, gallery). | Scroll to the enquire form (`#enquire`) | §6.6–§6.12 |
