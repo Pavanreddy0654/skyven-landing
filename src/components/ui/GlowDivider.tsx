@@ -1,12 +1,22 @@
 import clsx from "clsx";
+import Image from "next/image";
 
-/** Decorative glowing line (§5.3): fades out at both ends, warm glow in the centre. */
-export function GlowDivider({ className }: { className?: string }) {
+/**
+ * Decorative glowing line (§5.3). Uses the flare exported from the design (glow-flare.png):
+ * a thin line fading at both ends with a warm glow in the centre.
+ * `floating` positions it absolutely (e.g. on a card's top border) instead of in the flow.
+ */
+export function GlowDivider({ className, floating = false }: { className?: string; floating?: boolean }) {
   return (
-    <div aria-hidden className={clsx("relative h-3 w-[180px] md:w-[280px]", className)}>
-      <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-[linear-gradient(90deg,transparent,#FFE7B0,transparent)]" />
-      <span className="glow-pulse absolute top-1/2 left-1/2 h-3 w-10 -translate-1/2 bg-[radial-gradient(circle,rgb(255_231_176/0.9),transparent_70%)]" />
-      <span className="absolute top-1/2 left-1/2 size-1 -translate-1/2 rounded-full bg-white shadow-[0_0_8px_3px_rgb(255_231_176/0.8)]" />
+    <div
+      aria-hidden
+      className={clsx(
+        "glow-pulse pointer-events-none aspect-[448/131]",
+        floating ? "absolute" : "relative w-[220px] md:w-[340px]",
+        className,
+      )}
+    >
+      <Image src="/assets/glow-flare.png" alt="" fill sizes="(min-width: 768px) 448px, 220px" className="object-contain" />
     </div>
   );
 }

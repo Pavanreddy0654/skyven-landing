@@ -35,7 +35,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q4 | Gold headings on the cream band: `#E5D37D` or darker/gradient? | `gold-deep #B0A562` | §3.1, §13.8 |
 | Q5 | Exact font sizes and Karla weights. | Spec type scale (§3.3), weights 400/500/600/700 | §3.3, §13.9 |
 | Q6 | Budget dropdown options. | ₹6–7 Cr, ₹7–8 Cr, ₹8 Cr+ | §5.6, §13.10 |
-| Q7 | Fourth comparison row (label ends "…per floor") and what "Get detailed comparison" does. | 3 rows shown; button scrolls to the enquire form | §6.4, §13.11 |
+| Q7 | Extra comparison rows: the mobile design shows the labels "Homes per floor" and "Development format" but no values. Also: what "Get detailed comparison" does. | 3 rows shown; button scrolls to the enquire form | §6.4, §13.11 |
 | Q8 | Healthcare and Lifestyle location entries. | Category headings shown with no entries | §6.10, §13.12 |
 | Q9 | Sticky header? Floating WhatsApp/call button on mobile? | Header is fixed: transparent at the top of the page, navy/blur after 80px of scroll; no floating button | §6.1, §6.16, §13.13 |
 | Q10 | Large gaps after the closer-look video and before the footer text: animation space or spacing? | Normal section padding after the video; footer gap kept | §6.5, §9, §13.14 |
@@ -53,3 +53,4 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q22 | Sizes measured from the 1:1 desktop exports where the spec's estimates were far off: buttons 40px (1440) → 46px (1920) tall with 14–16px text (spec ~36px / 12–13px); header ENQUIRE NOW 50px tall at both desktop frames; hero stat labels 18px and values 40px (spec ~22px). Spec type scale kept everywhere else, though the design's hero line 2 is ~60px at both 1440 and 1920 (spec 52 / 64). | Measured values for the items listed; spec for the rest | §3.3, §5.1, §6.2 |
 | Q23 | Hero layout at 1440: the 1440 frame draws the tower ~1.08× viewport width and ~178px lower than a scaled 1920 frame. | Stage scale and offset interpolated between the 1440 and 1920 frames (see `.hero` in globals.css) | §6.2 |
 | Q24 | Floating labels start at 40% opacity per the spec's animation; in the Figma start frame they are fully opaque but partly covered by clouds. | Spec animation (0.4 → 1) | §6.2 |
+| Q25 | Type scale: the 1:1 desktop exports are consistently ~20–25% larger than the spec's estimates (e.g. section titles ~43px at 1440 vs spec 34px; comparison headers ~42px vs 22px; table rows ~22px vs 15px; Enquire Now title ~42px vs ~28px). | Spec type scale (per instruction); Enquire Now title uses the measured size. All sizes are tokens in `globals.css` and can be switched in one place | §3.3 |

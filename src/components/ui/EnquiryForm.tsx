@@ -11,7 +11,8 @@ type Layout = "inline" | "grid" | "stacked";
 
 type EnquiryFormProps = {
   /**
-   * inline: one row of 4 fields + button (lg), 2×2 grid + button row (md), stacked (mobile)
+   * inline: 4 fields + button in one row (2xl, as the 1920 frame), 4 fields then a button row
+   *         (lg, as the 1440 frame), 2×2 grid + right-aligned button row (md), stacked (mobile)
    * grid:   2×2 grid, centred button below (md+), stacked (mobile)
    * stacked: single column at every width
    */
@@ -122,7 +123,8 @@ export function EnquiryForm({
   const consentError = errorText("consent");
 
   const grid = {
-    inline: "grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(4,minmax(0,1fr))_auto] gap-x-5 gap-y-5 lg:gap-x-6",
+    inline:
+      "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-[repeat(4,minmax(0,1fr))_auto] gap-x-5 gap-y-5 lg:gap-x-6",
     grid: "grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 md:gap-y-6",
     stacked: "grid-cols-1 gap-y-5",
   }[layout];
@@ -176,7 +178,7 @@ export function EnquiryForm({
           <SubmitButton
             label={submitLabel}
             loading={status === "loading"}
-            className="w-full md:col-span-2 md:w-auto md:justify-self-end lg:col-span-1 lg:mt-1 lg:self-start"
+            className="w-full md:col-span-2 md:w-auto md:justify-self-end lg:col-span-4 lg:justify-self-start 2xl:col-span-1 2xl:mt-1 2xl:self-start"
           />
         )}
       </div>

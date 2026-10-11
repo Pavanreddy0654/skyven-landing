@@ -67,6 +67,10 @@
 
 :root {
   --gutter: 20px;
+  /* Hero stage units (see .hero below); on :root so following sections can line up with it */
+  --m: calc(100vw / 375);
+  --u: max(calc(0.256px + 0.03875vw), calc(100vw / 1920));
+  --t: max(0px, calc(712px - 37.08vw));
 }
 @media (min-width: 48rem) {
   :root {
@@ -93,10 +97,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   body {
     @apply bg-navy-900 font-body text-ivory antialiased;
-    overflow-x: clip;
   }
   :focus-visible {
     outline: 2px solid var(--color-gold);
@@ -120,7 +124,6 @@
  */
 @layer components {
   .hero {
-    --m: calc(100vw / 375);
     height: calc(1154 * var(--m));
   }
   .stage-layer {
@@ -138,8 +141,6 @@
   }
   @media (min-width: 48rem) {
     .hero {
-      --u: max(calc(0.256px + 0.03875vw), calc(100vw / 1920));
-      --t: max(0px, calc(712px - 37.08vw));
       height: calc(var(--t) + 1856 * var(--u));
     }
     .stage-layer {
