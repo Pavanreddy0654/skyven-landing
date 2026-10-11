@@ -10,14 +10,17 @@ export function Clubhouse456() {
     <section aria-labelledby="clubhouse-title" className="bg-navy-900 pb-section">
       {/* Full-bleed podium photo; the title sits on its faded lower part from md up (below it on mobile) */}
       <div className="relative">
-        <div className="relative aspect-[375/322] md:aspect-[1920/1247]">
-          <Image
-            src={clubhouse.background.src}
-            alt={clubhouse.background.alt}
-            fill
-            sizes="100vw"
-            className="object-cover object-[50%_20%] md:object-top"
-          />
+        {/* Mobile: show only the top ~62% of the photo (its lower part fades to navy, A9) so the title follows the building */}
+        <div className="relative aspect-[375/300] overflow-hidden md:aspect-[1920/1247]">
+          <div className="absolute inset-x-0 top-0 h-[160%] md:h-full">
+            <Image
+              src={clubhouse.background.src}
+              alt={clubhouse.background.alt}
+              fill
+              sizes="(min-width: 768px) 100vw, 200vw"
+              className="object-cover object-top"
+            />
+          </div>
         </div>
         <SectionHeading
           id="clubhouse-title"
