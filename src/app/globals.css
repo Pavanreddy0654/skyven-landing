@@ -43,11 +43,14 @@
   --text-small--line-height: 1.5;
   --text-micro: clamp(10px, calc(7px + 0.2083vw), 11px);
   --text-micro--line-height: 1.5;
-  --text-button: clamp(12px, calc(9px + 0.2083vw), 13px);
+  /* Measured from the 1:1 desktop exports (spec estimate was 12–13px; see Q22) */
+  --text-button: clamp(14px, calc(12px + 0.2083vw), 16px);
   --text-button--line-height: 1;
   --text-button--letter-spacing: 0.06em;
 
   /* Section vertical padding: 64 (mobile) / 120 (1440) / 140 (1920) */
+  /* Button height: 44 (mobile) / 40 (1440) / 46 (1920), measured from the exports */
+  --spacing-btn: clamp(40px, calc(22px + 1.25vw), 46px);
   --spacing-section: clamp(64px, calc(60px + 4.1667vw), 140px);
   /* Inset for wide rows (carousels, closer-look video) */
   --spacing-wide: 4.2vw;
@@ -104,5 +107,49 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+/*
+ * Hero stage (§6.2). Layers are positioned in design-frame units:
+ *   mobile  (<768): 375 frame,  --m = px per unit, origin at the left edge
+ *   desktop (≥768): 1920 frame, --u = px per unit, centred on the viewport, pushed down by --t
+ * --u and --t interpolate between the two desktop frames: at 1920 the image fills the width
+ * (u = 1, t = 0); at 1440 it is drawn 1.08× the viewport width and 178px lower (u = 0.814,
+ * t = 178px), as in the 1440 export. Above 1920, u = 100vw / 1920 so it always fills the width.
+ */
+@layer components {
+  .hero {
+    --m: calc(100vw / 375);
+    height: calc(1154 * var(--m));
+  }
+  .stage-layer {
+    position: absolute;
+    left: calc(var(--xm) * var(--m));
+    top: calc(var(--ym) * var(--m));
+    width: calc(var(--wm) * var(--m));
+  }
+  .stage-label {
+    font-size: calc(16.5 * var(--m));
+    line-height: 1.15;
+  }
+  .stage-anchor-right {
+    translate: -100% 0;
+  }
+  @media (min-width: 48rem) {
+    .hero {
+      --u: max(calc(0.256px + 0.03875vw), calc(100vw / 1920));
+      --t: max(0px, calc(712px - 37.08vw));
+      height: calc(var(--t) + 1856 * var(--u));
+    }
+    .stage-layer {
+      left: calc(50% + (var(--xd) - 960) * var(--u));
+      top: calc(var(--t) + var(--yd) * var(--u));
+      width: calc(var(--wd) * var(--u));
+    }
+    .stage-label {
+      font-size: max(14px, calc(32 * var(--u)));
+      line-height: 1.25;
+    }
   }
 }

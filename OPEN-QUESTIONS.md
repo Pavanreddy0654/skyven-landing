@@ -37,7 +37,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q6 | Budget dropdown options. | ₹6–7 Cr, ₹7–8 Cr, ₹8 Cr+ | §5.6, §13.10 |
 | Q7 | Fourth comparison row (label ends "…per floor") and what "Get detailed comparison" does. | 3 rows shown; button scrolls to the enquire form | §6.4, §13.11 |
 | Q8 | Healthcare and Lifestyle location entries. | Category headings shown with no entries | §6.10, §13.12 |
-| Q9 | Sticky header? Floating WhatsApp/call button on mobile? | Header turns sticky after the hero; no floating button | §6.1, §6.16, §13.13 |
+| Q9 | Sticky header? Floating WhatsApp/call button on mobile? | Header is fixed: transparent at the top of the page, navy/blur after 80px of scroll; no floating button | §6.1, §6.16, §13.13 |
 | Q10 | Large gaps after the closer-look video and before the footer text: animation space or spacing? | Normal section padding after the video; footer gap kept | §6.5, §9, §13.14 |
 | Q11 | Where form submissions go (CRM, email, Google Sheet). | `/api/enquiry` validates and logs; `TODO` for the integration | §10, §13.15 |
 | Q12 | Google Maps embed URL / exact pin. | Search-based embed for the address | §6.15, §13.16 |
@@ -50,3 +50,6 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q19 | VideoObject `uploadDate` for each YouTube video. | Taken from the public YouTube page if available; otherwise left out until confirmed | §5.7 |
 | Q20 | Section vertical padding and the ~4.2vw carousel inset. | Spec values (140 / 120 / 64px, 4.2vw) | §3.4 |
 | Q21 | Target of the other "EXPLORE SKYVEN" buttons (USP's, rooftop, construction, clubhouse, gallery). | Scroll to the enquire form (`#enquire`) | §6.6–§6.12 |
+| Q22 | Sizes measured from the 1:1 desktop exports where the spec's estimates were far off: buttons 40px (1440) → 46px (1920) tall with 14–16px text (spec ~36px / 12–13px); header ENQUIRE NOW 50px tall at both desktop frames; hero stat labels 18px and values 40px (spec ~22px). Spec type scale kept everywhere else, though the design's hero line 2 is ~60px at both 1440 and 1920 (spec 52 / 64). | Measured values for the items listed; spec for the rest | §3.3, §5.1, §6.2 |
+| Q23 | Hero layout at 1440: the 1440 frame draws the tower ~1.08× viewport width and ~178px lower than a scaled 1920 frame. | Stage scale and offset interpolated between the 1440 and 1920 frames (see `.hero` in globals.css) | §6.2 |
+| Q24 | Floating labels start at 40% opacity per the spec's animation; in the Figma start frame they are fully opaque but partly covered by clouds. | Spec animation (0.4 → 1) | §6.2 |
