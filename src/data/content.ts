@@ -372,8 +372,8 @@ export const landmarks = {
 
 export const mapEmbed = {
   title: "Map showing Skyven Residences, SY no. 153, Gandipet Main Road, Kokapet, Hyderabad",
-  // Q12: replace with the client's exact pin
-  src: "https://www.google.com/maps?q=SY+no.+153%2C+Gandipet+Main+Road%2C+Kokapet%2C+Hyderabad&output=embed",
+  // Pins Google's "Skyven" place (sy no:153, Gandipet Main Rd, Kokapet) with its info card
+  src: "https://www.google.com/maps?q=Skyven+Residences%2C+Kokapet%2C+Hyderabad&z=15&output=embed",
 };
 
 export const footer = {
