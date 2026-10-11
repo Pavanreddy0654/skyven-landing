@@ -141,7 +141,7 @@ function CloudLayer({
 }) {
   return (
     <m.div aria-hidden className={`stage-layer ${aspect} will-change-transform`} style={{ ...vars(pos), ...style }}>
-      <Image src={src} alt="" fill sizes={sizes} loading="eager" quality={80} className="object-contain" />
+      <Image src={src} alt="" fill sizes={sizes} loading="eager" fetchPriority="low" quality={80} className="object-contain" />
     </m.div>
   );
 }

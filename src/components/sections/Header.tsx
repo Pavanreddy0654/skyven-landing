@@ -8,7 +8,7 @@ export function Header() {
     <HeaderShell>
       <div className="container-content flex items-center justify-between">
         <a href="#top" aria-label="Skyven Residences, back to top" className="shrink-0">
-          <Logo preload className="h-[34px] lg:h-[43px]" />
+          <Logo className="h-[34px] lg:h-[43px]" />
         </a>
         <Button
           variant="outline"

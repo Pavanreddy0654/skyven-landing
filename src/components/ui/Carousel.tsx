@@ -71,9 +71,9 @@ export function Carousel({
         ref={viewportRef}
         className={clsx("cursor-grab overflow-hidden active:cursor-grabbing", bleed ? "px-carousel" : "")}
       >
-        <ul className="flex touch-pan-y gap-3 md:gap-4 lg:gap-6">
+        <div className="flex touch-pan-y gap-3 md:gap-4 lg:gap-6">
           {slides.map((slide, i) => (
-            <li
+            <div
               key={slide.src}
               role="group"
               aria-roledescription="slide"
@@ -102,9 +102,9 @@ export function Carousel({
                   </figcaption>
                 )}
               </figure>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       {dots && snapCount > 1 && (

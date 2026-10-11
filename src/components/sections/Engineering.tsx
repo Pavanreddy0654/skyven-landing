@@ -8,7 +8,7 @@ import { engineering } from "@/data/content";
 export function Engineering() {
   return (
     <section aria-labelledby="engineering-title" className="relative bg-navy-800 pt-section">
-      <GlowDivider floating className="top-0 left-1/2 w-[340px] -translate-1/2 md:w-[448px]" />
+      <GlowDivider floating className="top-0 left-1/2 w-[min(340px,100%)] -translate-1/2 md:w-[448px]" />
       <div className="container-content">
         <SectionHeading
           id="engineering-title"

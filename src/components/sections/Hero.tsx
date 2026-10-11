@@ -11,14 +11,19 @@ function Elevation() {
     props: { srcSet: desktop, sizes: desktopSizes },
   } = getImageProps({ ...common, src: hero.images.elevation.desktop, sizes: "(min-width: 1920px) 100vw, 110vw" });
   const {
-    props: { srcSet: mobile, ...rest },
+    props: { srcSet: mobile, sizes: mobileSizes, ...rest },
   } = getImageProps({ ...common, src: hero.images.elevation.mobile, sizes: "100vw" });
 
+  // LCP image: preload the right version per breakpoint (React hoists these <link>s into <head>)
   return (
-    <picture>
-      <source media="(min-width: 768px)" srcSet={desktop} sizes={desktopSizes} />
-      <img {...rest} srcSet={mobile} alt={common.alt} loading="eager" fetchPriority="high" className="object-cover" />
-    </picture>
+    <>
+      <link rel="preload" as="image" imageSrcSet={mobile} imageSizes={mobileSizes} media="(max-width: 767px)" fetchPriority="high" />
+      <link rel="preload" as="image" imageSrcSet={desktop} imageSizes={desktopSizes} media="(min-width: 768px)" fetchPriority="high" />
+      <picture>
+        <source media="(min-width: 768px)" srcSet={desktop} sizes={desktopSizes} />
+        <img {...rest} srcSet={mobile} sizes={mobileSizes} alt={common.alt} loading="eager" fetchPriority="high" className="object-cover" />
+      </picture>
+    </>
   );
 }
 

@@ -30,7 +30,7 @@ export function Location() {
         />
 
         <Reveal className="mt-10 grid items-start gap-10 md:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-[45%_55%] lg:gap-0">
-          <div className="relative aspect-[860/848] w-full md:order-last lg:w-[calc(100%+10vw)] lg:max-w-[860px]">
+          <div className="relative aspect-[860/848] w-full md:order-last lg:w-[calc(100%+min(10vw,(100vw-min(1224px,35vw+552px,100vw-96px))/2-16px))] lg:max-w-[860px]">
             <Image
               src={location.map.src}
               alt={location.map.alt}

@@ -17,7 +17,7 @@ export function EnquireBar() {
         id="enquire"
         className="relative container-content scroll-mt-28 border border-cream/80 bg-navy-900 px-5 pt-7 pb-8 md:px-[38px] md:pt-[30px] md:pb-[34px]"
       >
-        <GlowDivider floating className="top-0 left-[70%] w-[220px] -translate-1/2 md:left-3/4 md:w-[340px] lg:w-[448px]" />
+        <GlowDivider floating className="top-0 left-[70%] w-[min(220px,55vw)] -translate-1/2 md:left-3/4 md:w-[340px] lg:w-[448px]" />
         <h2
           id="enquire-title"
           className="mb-6 font-display text-[24px] leading-tight md:mb-7 md:text-[clamp(28px,calc(33px+0.625vw),45px)]"
