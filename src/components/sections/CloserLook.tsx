@@ -15,6 +15,7 @@ export function CloserLook() {
           videoId={videos.closerLook.id}
           title={videos.closerLook.title}
           poster={videos.closerLook.poster}
+          autoplayInView
           aspectClassName="aspect-video md:aspect-[1760/731]"
           sizes="(min-width: 768px) 92vw, 100vw"
         />
