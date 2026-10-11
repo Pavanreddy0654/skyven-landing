@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  // Hide the "N" dev-tools badge while developing (it never appears in production); errors still show
+  devIndicators: false,
   partialPrefetching: true,
   images: {
     formats: ["image/avif", "image/webp"],

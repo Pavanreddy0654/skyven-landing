@@ -20,7 +20,9 @@ export type Lead = {
 type Destination = "sheets" | "crm" | "email";
 export type DeliveryResult = { destination: Destination; ok: boolean; error?: string };
 
-const TIMEOUT_MS = 10_000;
+// Each destination gets 7s; they run in parallel, so a submission finishes well inside the ~10s
+// serverless function limit on hosts like Netlify.
+const TIMEOUT_MS = 7_000;
 const env = (name: string) => process.env[name]?.trim() || undefined;
 
 /** Submission time in India, for people reading the sheet and the email */
