@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skyven Residences: landing page
 
-## Getting Started
+Next.js 16 (App Router) + TypeScript + Tailwind CSS v4. Built from `LANDING_PAGE_SPEC.md`; open items are in `OPEN-QUESTIONS.md`.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev            # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables (set before `npm run build`)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`NEXT_PUBLIC_*` values are baked in at build time, so set them in the hosting environment before building.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Example | Effect |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://www.your-domain.com` | Canonical URL, sitemap, Open Graph image URLs. Defaults to `http://localhost:3000`. |
+| `NEXT_PUBLIC_SITE_ENV` | `production` | Only `production` makes the site indexable. Any other value (or none) gives `noindex` and a `robots.txt` that blocks crawling, for staging and preview builds. |
 
-## Learn More
+## Where things live
 
-To learn more about Next.js, take a look at the following resources:
+| What | Where |
+|---|---|
+| All page copy | `src/data/content.ts` |
+| Design tokens (colours, type scale, spacing) | `src/app/globals.css` (`@theme`) |
+| Sections | `src/components/sections/` |
+| Shared UI (Button, Accordion, Carousel, forms, video) | `src/components/ui/` |
+| Form validation (client and server) | `src/lib/enquiry.ts` |
+| Form endpoint | `src/app/api/enquiry/route.ts` (CRM/email hand-off still a `TODO`, see Q11) |
+| Images | `public/assets/` (originals in `design-source/originals/`) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `node scripts/optimize-images.mjs`: recompresses images from `design-source/originals/` into `public/assets/` (WebP hero layers and posters, mobile hero crop).
+- `node scripts/generate-icons.mjs`: regenerates `favicon.ico`, `icon.png`, `apple-icon.png` and `public/og-image.jpg`.
 
-## Deploy on Vercel
+Replacing a photo with a 2x export: keep the same file name in `public/assets/`; layouts use aspect-ratio boxes, so no code changes are needed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Logo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The logo is one component (`src/components/ui/Logo.tsx`). To switch to an SVG, change the `src` (and width/height ratio) in `logo` in `src/data/content.ts`, then point `LOGO` / `EMBLEM_ROWS` in `scripts/generate-icons.mjs` at the new file (or an emblem-only export) and re-run it.

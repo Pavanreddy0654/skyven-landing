@@ -23,6 +23,16 @@ export const site = {
     "https://www.google.com/maps/search/?api=1&query=SY+no.+153%2C+Gandipet+Main+Road%2C+Kokapet%2C+Hyderabad",
 };
 
+export const seo = {
+  // Spec title trimmed to ~55 characters (§11.2)
+  title: "Skyven Residences Kokapet | Luxury 4BHK from ₹6.5 Cr",
+  description:
+    "Skyven Residences: Kokapet's tallest single tower with 63 floors, only 210 4BHK homes, rooftop clubhouse on floors 62 & 63. Book a site visit today.",
+  ogImage: { src: "/og-image.jpg", width: 1200, height: 630, alt: "Skyven Residences tower in Kokapet, Hyderabad, at dusk" },
+  priceFrom: 65000000,
+  developers: ["E-Infra", "PVR Pingle"],
+};
+
 export const logo = {
   // A3: swap to "/assets/brand/logo.svg" when the SVG arrives
   header: { src: "/assets/brand/logo-header.png", width: 102, height: 54 },
@@ -116,16 +126,19 @@ export const comparison = {
 export const videos = {
   closerLook: {
     id: "wDzI8VEbt5s",
+    uploadDate: "2026-06-09T05:09:57-07:00",
     title: "Skyven Residences: Every great view deserves a closer look",
     poster: "/assets/posters/closer-look-poster.webp",
   },
   usps: {
     id: "60lmxpAgAzE",
+    uploadDate: "2026-08-28T22:00:25-07:00",
     title: "Skyven Residences USPs: interview with E-Infra leadership",
     poster: "/assets/posters/usps-poster.webp",
   },
   construction: {
     id: "LBiZ_50sdOM",
+    uploadDate: "2026-08-17T00:03:21-07:00",
     title: "Skyven construction update, August 2026",
     poster: undefined, // A6: YouTube thumbnail
   },

@@ -72,6 +72,8 @@ export function EnquiryForm({
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
+      // Analytics (§11.7): picked up by GTM / GA4 when the client adds their tags
+      (window as Window & { dataLayer?: object[] }).dataLayer?.push({ event: "generate_lead", source });
     } catch {
       setStatus("error");
     }

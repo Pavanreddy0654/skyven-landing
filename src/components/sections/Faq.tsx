@@ -1,3 +1,4 @@
+import { JsonLd } from "@/components/JsonLd";
 import { Accordion } from "@/components/ui/Accordion";
 import { Reveal } from "@/components/ui/Reveal";
 import { faq } from "@/data/content";
@@ -15,7 +16,7 @@ export function Faq() {
 
   return (
     <section aria-labelledby="faq-title" className="bg-navy-900 pt-section">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLd data={jsonLd} />
       <div className="container-content">
         <h2 id="faq-title" className="inline-block border-b border-ivory/80 pb-1.5 font-display text-h2 text-cream">
           {faq.title}

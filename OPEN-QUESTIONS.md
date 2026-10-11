@@ -48,7 +48,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q16 | Closer-look video: ~2.2:1 crop or plain 16:9? | 2.2:1 poster crop on desktop, 16:9 on mobile | §6.5 |
 | Q17 | Carousel aspect (~16:9?) and whether arrows are wanted. | Aspect of the supplied images (808×456), no arrows | §5.5 |
 | Q18 | FAQ default state: all open (as drawn) or first only? | First open | §6.13 |
-| Q19 | VideoObject `uploadDate` for each YouTube video. | Taken from the public YouTube page if available; otherwise left out until confirmed | §5.7 |
+| Q19 | ~~VideoObject `uploadDate`~~ Resolved: taken from the public YouTube pages (2026-06-09, 2026-08-28, 2026-08-17). | — | §5.7 |
 | Q20 | Section vertical padding and the ~4.2vw carousel inset. | Spec values (140 / 120 / 64px, 4.2vw) | §3.4 |
 | Q21 | Target of the other "EXPLORE SKYVEN" buttons (USP's, rooftop, construction, clubhouse, gallery). | Scroll to the enquire form (`#enquire`) | §6.6–§6.12 |
 | Q22 | Sizes measured from the 1:1 desktop exports where the spec's estimates were far off: buttons 40px (1440) → 46px (1920) tall with 14–16px text (spec ~36px / 12–13px); header ENQUIRE NOW 50px tall at both desktop frames; hero stat labels 18px and values 40px (spec ~22px). Spec type scale kept everywhere else, though the design's hero line 2 is ~60px at both 1440 and 1920 (spec 52 / 64). | Measured values for the items listed; spec for the rest | §3.3, §5.1, §6.2 |
