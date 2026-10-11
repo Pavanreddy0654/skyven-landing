@@ -5,7 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { comparison } from "@/data/content";
 
-// The last row fades out, suggesting more content (§6.4)
+// Mobile accordion: the last row fades out, suggesting more content (§6.4). The desktop table shows every row in full.
 const fadeLast = "mask-[linear-gradient(to_bottom,black,transparent_95%)] opacity-60";
 
 export function Comparison() {
@@ -44,7 +44,7 @@ export function Comparison() {
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={row.label} className={clsx(i < last && "border-b border-line", i === last && fadeLast)}>
+                <tr key={row.label} className={clsx(i < last && "border-b border-line")}>
                   <th scope="row" className="py-7 pr-6 align-middle font-normal lg:py-9">
                     <span className="block text-[15px] text-ivory lg:text-body">{row.label}</span>
                     <span className="mt-1 block text-small text-ivory/60">{row.sub}</span>
@@ -84,7 +84,7 @@ export function Comparison() {
           />
         </Reveal>
 
-        <div className="mt-10 flex justify-center md:mt-12">
+        <div className="mt-10 flex justify-center md:mt-0">
           <Button href={comparison.cta.href} className="w-full md:w-auto">
             {comparison.cta.label}
           </Button>
