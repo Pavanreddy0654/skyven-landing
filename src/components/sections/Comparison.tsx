@@ -5,12 +5,12 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { comparison } from "@/data/content";
 
-// Mobile accordion: the last row fades out, suggesting more content (§6.4). The desktop table shows every row in full.
-const fadeLast = "mask-[linear-gradient(to_bottom,black,transparent_95%)] opacity-60";
+// Keep a figure and its unit on one line when the narrow mobile columns wrap ("913 sq. ft.")
+const keepTogether = (value: string) => value.replace(/(\d) (sq\.) (ft\.)/g, "$1\u00a0$2\u00a0$3");
 
 export function Comparison() {
   const { headers, rows } = comparison;
-  const last = rows.length - 1;
+  const last = rows.length - 1; // the last table row has no divider below it
 
   return (
     <section aria-labelledby="comparison-title" className="bg-navy-900 py-section">
@@ -62,20 +62,20 @@ export function Comparison() {
             headingLevel="h3"
             defaultOpen={[0]}
             triggerClassName="py-4 text-[18px] text-ivory aria-expanded:font-semibold"
-            items={rows.map((row, i) => ({
+            items={rows.map((row) => ({
               id: row.label,
-              title: <span className={clsx(i === last && "opacity-60")}>{row.label}</span>,
+              title: row.label,
               content: (
-                <div className={clsx("pb-5", i === last && fadeLast)}>
+                <div className="pb-5">
                   <p className="text-small text-ivory/70">{row.sub}</p>
                   <dl className="mt-5 grid grid-cols-2">
-                    <div className="pr-4">
+                    <div className="min-w-0 pr-4">
                       <dt className="text-small uppercase">{headers.skyven}</dt>
-                      <dd className="mt-1 font-display text-[18px] whitespace-nowrap text-cream">{row.skyven}</dd>
+                      <dd className="mt-1 font-display text-[17px] leading-snug break-words text-cream">{keepTogether(row.skyven)}</dd>
                     </div>
-                    <div className="border-l border-line pl-4">
+                    <div className="min-w-0 border-l border-line pl-4">
                       <dt className="text-small uppercase">{headers.others}</dt>
-                      <dd className="mt-1 font-display text-[18px] whitespace-nowrap text-cream">{row.others}</dd>
+                      <dd className="mt-1 font-display text-[17px] leading-snug break-words text-cream">{keepTogether(row.others)}</dd>
                     </div>
                   </dl>
                 </div>
