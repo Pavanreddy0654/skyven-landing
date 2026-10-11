@@ -47,7 +47,7 @@ Running list of everything still to confirm with the designer or client. Each it
 | Q15 | "EXPLORE THE LOCATION" target. | Google Maps link for the address, new tab | §6.10 |
 | Q16 | Closer-look video: ~2.2:1 crop or plain 16:9? | 2.2:1 poster crop on desktop, 16:9 on mobile | §6.5 |
 | Q17 | Carousel aspect (~16:9?) and whether arrows are wanted. | Aspect of the supplied images (808×456), no arrows | §5.5 |
-| Q18 | FAQ default state: all open (as drawn) or first only? | First open | §6.13 |
+| Q18 | FAQ default state: all open (as drawn) or first only? | All open (confirmed by the client) | §6.13 |
 | Q19 | ~~VideoObject `uploadDate`~~ Resolved: taken from the public YouTube pages (2026-06-09, 2026-08-28, 2026-08-17). | — | §5.7 |
 | Q20 | Section vertical padding and the ~4.2vw carousel inset. | Spec values (140 / 120 / 64px, 4.2vw) | §3.4 |
 | Q21 | Target of the other "EXPLORE SKYVEN" buttons (USP's, rooftop, construction, clubhouse, gallery). | Scroll to the enquire form (`#enquire`) | §6.6–§6.12 |

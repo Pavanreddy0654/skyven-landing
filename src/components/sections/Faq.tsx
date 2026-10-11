@@ -24,7 +24,9 @@ export function Faq() {
         <Reveal className="mt-6 md:mt-8">
           <Accordion
             headingLevel="h3"
-            defaultOpen={[0]}
+            // All answers open by default, as in the design; each can be closed on its own
+            allowMultiple
+            defaultOpen={faq.items.map((_, i) => i)}
             triggerClassName="py-5 text-[17px] font-medium text-ivory md:text-[clamp(16px,1.39vw,22px)]"
             contentClassName="pb-6 text-[15px] leading-relaxed text-ivory/75 md:text-body"
             items={faq.items.map((item) => ({
