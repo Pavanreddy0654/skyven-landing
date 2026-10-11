@@ -12,7 +12,7 @@ export function GlowDivider({ className, floating = false }: { className?: strin
       aria-hidden
       className={clsx(
         "glow-pulse pointer-events-none aspect-[448/131]",
-        floating ? "absolute" : "relative w-[220px] md:w-[340px]",
+        floating ? "absolute" : "relative w-full max-w-[340px] md:w-[448px] md:max-w-none",
         className,
       )}
     >
