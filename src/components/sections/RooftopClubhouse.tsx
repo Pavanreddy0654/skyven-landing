@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Carousel } from "@/components/ui/Carousel";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { rooftop } from "@/data/content";
 
@@ -14,14 +15,15 @@ export function RooftopClubhouse() {
         subtitleStyle="tagline"
         tone="light"
       />
-      <Carousel
-        className="mt-8 md:mt-10"
-        label="Rooftop clubhouse amenities"
-        slides={rooftop.slides}
-        tone="light"
-        imageClassName="aspect-[335/319] md:aspect-[808/456]"
-        sizes="(min-width: 768px) 808px, 88vw"
-      />
+      <Reveal className="mt-8 md:mt-10">
+        <Carousel
+          label="Rooftop clubhouse amenities"
+          slides={rooftop.slides}
+          tone="light"
+          imageClassName="aspect-[335/319] md:aspect-[808/456]"
+          sizes="(min-width: 768px) 808px, 88vw"
+        />
+      </Reveal>
       <div className="mt-8 flex justify-center">
         <Button href={rooftop.cta.href}>{rooftop.cta.label}</Button>
       </div>

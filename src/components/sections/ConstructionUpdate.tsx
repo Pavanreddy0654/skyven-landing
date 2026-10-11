@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { VideoCard } from "@/components/ui/VideoCard";
 import { construction, videos } from "@/data/content";
@@ -14,12 +15,13 @@ export function ConstructionUpdate() {
           subtitle={construction.subtitle}
           tone="light"
         />
-        <VideoCard
-          className="mt-8 md:mt-10"
-          videoId={videos.construction.id}
-          title={videos.construction.title}
-          poster={videos.construction.poster}
-        />
+        <Reveal className="mt-8 md:mt-10">
+          <VideoCard
+            videoId={videos.construction.id}
+            title={videos.construction.title}
+            poster={videos.construction.poster}
+          />
+        </Reveal>
         <div className="mt-8 flex justify-center">
           <Button href={construction.cta.href}>{construction.cta.label}</Button>
         </div>

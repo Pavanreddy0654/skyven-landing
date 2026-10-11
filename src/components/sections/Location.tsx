@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { GlowDivider } from "@/components/ui/GlowDivider";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { location, type LocationEntry } from "@/data/content";
 
@@ -28,9 +29,15 @@ export function Location() {
           subtitle={location.subtitle}
         />
 
-        <div className="mt-10 grid items-start gap-10 md:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-[45%_55%] lg:gap-0">
+        <Reveal className="mt-10 grid items-start gap-10 md:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-[45%_55%] lg:gap-0">
           <div className="relative aspect-[860/848] w-full md:order-last lg:w-[calc(100%+10vw)] lg:max-w-[860px]">
-            <Image src={location.map.src} alt={location.map.alt} fill sizes="(min-width: 1024px) 60vw, (min-width: 768px) 50vw, 100vw" className="object-contain" />
+            <Image
+              src={location.map.src}
+              alt={location.map.alt}
+              fill
+              sizes="(min-width: 1024px) 60vw, (min-width: 768px) 50vw, 100vw"
+              className="object-contain"
+            />
           </div>
 
           <div className="lg:pr-10">
@@ -60,7 +67,7 @@ export function Location() {
               {location.cta.label}
             </Button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

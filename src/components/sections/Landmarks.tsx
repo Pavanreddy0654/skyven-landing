@@ -1,5 +1,6 @@
 import { EnquiryForm } from "@/components/ui/EnquiryForm";
 import { GlowDivider } from "@/components/ui/GlowDivider";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { landmarks } from "@/data/content";
 
@@ -14,7 +15,9 @@ export function Landmarks() {
           title={landmarks.title}
           subtitle={landmarks.subtitle}
         />
-        <EnquiryForm layout="grid" source="landmarks" className="mx-auto mt-10 max-w-[808px] md:mt-14" />
+        <Reveal className="mx-auto mt-10 max-w-[808px] md:mt-14">
+          <EnquiryForm layout="grid" source="landmarks" />
+        </Reveal>
       </div>
     </section>
   );

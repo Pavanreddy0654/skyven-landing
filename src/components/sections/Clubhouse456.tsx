@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Carousel } from "@/components/ui/Carousel";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { clubhouse } from "@/data/content";
 
@@ -28,13 +29,14 @@ export function Clubhouse456() {
         />
       </div>
 
-      <Carousel
-        className="relative mt-10 md:-mt-[5.4vw]"
-        label="Clubhouse floors 4, 5 and 6 amenities"
-        slides={clubhouse.slides}
-        imageClassName="aspect-[335/319] md:aspect-[808/456]"
-        sizes="(min-width: 768px) 808px, 88vw"
-      />
+      <Reveal className="relative mt-10 md:-mt-[5.4vw]">
+        <Carousel
+          label="Clubhouse floors 4, 5 and 6 amenities"
+          slides={clubhouse.slides}
+          imageClassName="aspect-[335/319] md:aspect-[808/456]"
+          sizes="(min-width: 768px) 808px, 88vw"
+        />
+      </Reveal>
       <div className="mt-8 flex justify-center">
         <Button href={clubhouse.cta.href}>{clubhouse.cta.label}</Button>
       </div>

@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Reveal } from "@/components/ui/Reveal";
 
 type SectionHeadingProps = {
   id?: string;
@@ -36,7 +37,7 @@ export function SectionHeading({
   const t = tones[tone];
 
   return (
-    <div className={clsx(align === "center" ? "text-center" : "text-left", className)}>
+    <Reveal className={clsx(align === "center" ? "text-center" : "text-left", className)}>
       {eyebrow && <p className={clsx("mb-3 font-display text-eyebrow", t.eyebrow)}>{eyebrow}</p>}
       <h2 id={id} className={clsx("font-display text-h2", t.title)}>
         {lines.map((line, i) => (
@@ -58,6 +59,6 @@ export function SectionHeading({
           {subtitle}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }

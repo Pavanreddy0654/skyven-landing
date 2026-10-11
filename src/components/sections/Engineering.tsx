@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { GlowDivider } from "@/components/ui/GlowDivider";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { engineering } from "@/data/content";
 
@@ -21,26 +22,29 @@ export function Engineering() {
           {engineering.features.map((feature, i) => {
             const imageRight = i % 2 === 1;
             return (
-              <li
-                key={feature.title}
-                className={clsx(
-                  "grid items-center gap-5 md:gap-0",
-                  imageRight ? "md:grid-cols-[1fr_51%]" : "md:grid-cols-[51%_1fr]",
-                )}
-              >
-                <div className={clsx("relative aspect-[540/399] w-full overflow-hidden", imageRight && "md:order-last")}>
-                  <Image
-                    src={feature.image.src}
-                    alt={feature.image.alt}
-                    fill
-                    sizes="(min-width: 768px) 51vw, 86vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className={clsx(imageRight ? "md:pr-8" : "md:pl-[15%]")}>
-                  <h3 className="font-display text-h3 text-gold">{feature.title}</h3>
-                  <p className="mt-2 max-w-[24rem] text-body text-ivory">{feature.body}</p>
-                </div>
+              <li key={feature.title}>
+                <Reveal
+                  className={clsx(
+                    "grid items-center gap-5 md:gap-0",
+                    imageRight ? "md:grid-cols-[1fr_51%]" : "md:grid-cols-[51%_1fr]",
+                  )}
+                >
+                  <div
+                    className={clsx("relative aspect-[540/399] w-full overflow-hidden", imageRight && "md:order-last")}
+                  >
+                    <Image
+                      src={feature.image.src}
+                      alt={feature.image.alt}
+                      fill
+                      sizes="(min-width: 768px) 51vw, 86vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className={clsx(imageRight ? "md:pr-8" : "md:pl-[15%]")}>
+                    <h3 className="font-display text-h3 text-gold">{feature.title}</h3>
+                    <p className="mt-2 max-w-[24rem] text-body text-ivory">{feature.body}</p>
+                  </div>
+                </Reveal>
               </li>
             );
           })}
