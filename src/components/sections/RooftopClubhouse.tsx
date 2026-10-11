@@ -22,6 +22,7 @@ export function RooftopClubhouse() {
           tone="light"
           imageClassName="aspect-[335/319] md:aspect-[808/456]"
           sizes="(min-width: 768px) 808px, 88vw"
+          lightbox
         />
       </Reveal>
       <div className="mt-8 flex justify-center">

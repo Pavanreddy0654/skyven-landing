@@ -4,6 +4,7 @@ import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { Lightbox, type LightboxImage } from "./Lightbox";
 
 export type CarouselSlide = { src: string; alt: string; caption?: string };
 
@@ -22,6 +23,10 @@ type CarouselProps = {
   bleed?: boolean;
   dots?: boolean;
   className?: string;
+  /** Open slides in a full-screen viewer on click/tap (a drag still just scrolls) */
+  lightbox?: boolean;
+  /** Images shown in the viewer, if different from the slides (e.g. larger versions); same order */
+  lightboxImages?: readonly LightboxImage[];
 };
 
 /**
@@ -38,7 +43,10 @@ export function Carousel({
   bleed = true,
   dots = false,
   className,
+  lightbox = false,
+  lightboxImages,
 }: CarouselProps) {
+  const [viewing, setViewing] = useState<number | null>(null);
   const [viewportRef, embla] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -81,16 +89,35 @@ export function Carousel({
               className={clsx("min-w-0 shrink-0 grow-0", slideClassName)}
             >
               <figure>
-                <div className={clsx("relative overflow-hidden", imageClassName)}>
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    sizes={sizes}
-                    draggable={false}
-                    className="object-cover select-none"
-                  />
-                </div>
+                {lightbox ? (
+                  // Embla cancels this click when the pointer was dragged, so drags only scroll
+                  <button
+                    type="button"
+                    onClick={() => setViewing(i)}
+                    aria-label={`View larger: ${slide.caption ?? slide.alt}`}
+                    className={clsx("group relative block w-full cursor-zoom-in overflow-hidden", imageClassName)}
+                  >
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes={sizes}
+                      draggable={false}
+                      className="object-cover transition-transform duration-500 select-none group-hover:scale-[1.02]"
+                    />
+                  </button>
+                ) : (
+                  <div className={clsx("relative overflow-hidden", imageClassName)}>
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes={sizes}
+                      draggable={false}
+                      className="object-cover select-none"
+                    />
+                  </div>
+                )}
                 {slide.caption && (
                   <figcaption
                     className={clsx(
@@ -128,6 +155,8 @@ export function Carousel({
           ))}
         </div>
       )}
+
+      {lightbox && <Lightbox images={lightboxImages ?? slides} index={viewing} onChange={setViewing} />}
     </div>
   );
 }
